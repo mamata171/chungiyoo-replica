@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/ab66e8c8b5.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Piazzolla:ital,wght@1,300&family=Prata&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-color: rgb(242, 236, 228);
+        }
+        .wrapper{
+            position: fixed;
+            top:0;
+            left: 0;
+            height:100%;
+            width:100%;
+            clip-path: circle(25px at calc(100% - 45px) 45px);
+            transition: all 0.5s ease-in-out;
+
+        }
+
+      #active:checked ~ .wrapper{
+            clip-path: circle(75%);
+          background-color: rgb(211, 162, 162);
+
+        }
+
+        .menu-btn{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            z-index: 2;
+            text-align: center;
+            line-height: 50px;
+            height:50px;
+            width: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+
+            background-color: rgb(211, 162, 162);
+
+        }
+       #active:checked ~ .menu-btn{
+        background-color: rgb(242, 236, 228);;
+        
+       }
+
+       #active:checked ~ .menu-btn i::before{
+        content: "\f00d";
+       }
+        .wrapper ul{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            list-style: none;
+            text-align: center;
+        }
+
+        .wrapper ul li{
+            margin:15px 0;
+
+        } 
+        .wrapper ul li a{
+            text-decoration: none;
+            color: black;
+            font-size: 35px;
+            font-weight: 400;
+            padding:5px 50px;
+            line-height: 50px;
+            transition: all 0.3s ease;
+
+
+        }
+        .wrapper ul li a:after{
+            content: "";
+            position: absolute;
+            left: 60px;
+            width: 70%;
+            height: 50px;
+            background-color:  rgb(242, 236, 228);
+            border-radius: 50px;
+            transform: scaleY(0);
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
+        .wrapper ul li a:hover:after{
+            transform: scaleY(1);
+          
+        }
+        .wrapper ul li a:hover{
+            color: black;
+        }
+
+        input{
+            display: none;
+        }
+
+    </style>
+
+</head>
+<body>
+    <input type="checkbox" name="active" id="active">
+    <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+    <div class="wrapper">
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Feedback</a></li>
+        </ul>
+    </div>
+
+   
+</body>
+</html>
